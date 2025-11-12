@@ -1,16 +1,17 @@
 // Demonstrates the Collatz conjecture.
+
 public class Collatz {
 	public static void main(String[] args) {
-			int number = Integer.parseInt(args[0]);  // upper limit
-			String letter = args[1];                 // "c" or "v"
+			int limit = Integer.parseInt(args[0]); 
+			String mode = args[1];                
 
-			for (int i = 1; i <= number; i++) {
-					int n = i;
+			for (int seed = 1; seed <= limit; seed++) {
+					int n = seed;
 					int steps = 0;
 
-					// print sequence only in "v" mode
-					if (letter.equals("v")) {
-							System.out.print(i + " ");
+					if (mode.equals("v")) {
+							
+							System.out.print(seed + " ");
 					}
 
 					while (n != 1) {
@@ -19,19 +20,17 @@ public class Collatz {
 							} else {
 									n = 3 * n + 1;
 							}
-
 							steps++;
-
-							if (letter.equals("v")) {
+							if (mode.equals("v")) {
 									System.out.print(n + " ");
 							}
 					}
 
-					if (letter.equals("v")) {
+					if (mode.equals("v")) {
 							System.out.println("(" + steps + ")");
 					}
 			}
 
-			System.out.println("Every one of the first " + number + " hailstone sequences reached 1.");
+			System.out.println("Every one of the first " + limit + " hailstone sequences reached 1.");
 	}
 }
