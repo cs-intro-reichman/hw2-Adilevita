@@ -11,14 +11,17 @@ public class Cheers {
             String word = args[0];
             int times = Integer.parseInt(args[1]);
     
-            // אותיות שאומרים "an" לפניהן (לפי הגייה)
+            // אותיות שלפי ההגייה מקבלות "an"
             String anSet = "AEFHILMNORSX";
     
             for (int i = 0; i < word.length(); i++) {
-                char c = word.charAt(i);           // שמור על המקרה המקורי
+                char c = word.charAt(i);
                 char upper = Character.toUpperCase(c);
+    
                 String article = (anSet.indexOf(upper) >= 0) ? "an" : "a";
-                System.out.println("Give me " + article + " " + c + ": " + c + "!");
+                String pad = article.equals("a") ? "  " : " "; // a -> שני רווחים, an -> רווח אחד
+    
+                System.out.println("Give me " + article + pad + upper + ": " + upper + "!");
             }
     
             System.out.println("What does that spell?");
